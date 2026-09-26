@@ -35,3 +35,17 @@ This repository is the owner's canonical production dashboard.
 - LIVE Auto requires a separate owner signature and only consumes closed-candle signals whose research validation passes.
 - Any live-adapter restart fails closed: manual LIVE and LIVE Auto return to DISARMED/OFF.
 - Withdrawals are never delegated; the owner wallet signs the USDC transfer.
+
+## Owner-only production dashboard
+- `JoshuaDuskin/MylesDashboard` is the single source of truth for the Myles production UI.
+- Myles runtime, continuous improvement, owner jobs, autonomous jobs, tool jobs, PowerShell, browser automation, and GitHub tools MUST NEVER modify, redesign, replace, commit, push, publish, force-update, or create an alternative to this dashboard.
+- Myles may inspect it read-only for diagnostics.
+- Production dashboard releases are external owner-approved release operations only.
+- Live runtime/chat/trading state belongs on the authenticated tower bridge, not a GitHub status repository.
+
+
+## Owner-installed connection supervisor exception
+- The external owner-installed connection supervisor may update **only** `bridge.json` when the public tower tunnel endpoint changes after restart.
+- This narrow pointer update is not a dashboard redesign or status feed. It exists only so the immutable production UI can discover the authenticated tower bridge.
+- The connection supervisor MUST NOT modify `index.html`, `AGENTS.md`, styling, layout, trading logic, status snapshots, or any other repository path after this owner-approved release.
+- Myles jobs, continuous improvement, autonomous work, tools, and normal runtime activity remain read-only against this repository.
